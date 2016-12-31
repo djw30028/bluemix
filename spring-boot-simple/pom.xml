@@ -16,8 +16,21 @@
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.4.2.RELEASE</version>
 		<relativePath /> <!-- lookup parent from repository -->
-		
+
 	</parent>
+	<repositories>
+		<repository>
+			<id>org.springframework.maven.milestone</id>
+			<name>Spring Framework Maven Milestone Repository</name>
+			<url>http://maven.springframework.org/milestone</url>
+		</repository>
+	</repositories>
+
+	<properties>
+		<java.version>1.8</java.version>
+		<docker.image.prefix>michael</docker.image.prefix>
+		<start-class>com.michaelw.Application</start-class>
+	</properties>
 
 	<dependencies>
 		<dependency>
@@ -37,7 +50,7 @@
 			<scope>test</scope>
 		</dependency>
 		<!-- end::tests[] -->
-		
+
 		<dependency>
 			<groupId>io.springfox</groupId>
 			<artifactId>springfox-swagger-ui</artifactId>
@@ -51,12 +64,22 @@
 			<version>2.2.2</version>
 			<scope>compile</scope>
 		</dependency>
+
+		<!-- bluemix -->
+		<dependency>
+			<groupId>org.cloudfoundry</groupId>
+			<artifactId>cloudfoundry-runtime</artifactId>
+			<version>0.8.6</version>
+		</dependency>
+		<dependency>
+			<groupId>postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<version>9.1-901.jdbc4</version>
+		</dependency>
+
 	</dependencies>
 
-	<properties>
-		<java.version>1.8</java.version>
-		<docker.image.prefix>michael</docker.image.prefix>
-	</properties>
+
 
 	<build>
 		<plugins>
